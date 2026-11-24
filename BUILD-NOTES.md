@@ -53,4 +53,8 @@ No collision with sibling one-line entries: grep across the makefun workspace fo
 
 ## Verification
 
-- (Filled in after the push step.)
+- Local run (twice): `mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts` → `wrote entry.txt (86 chars)` both times; sha256 `09e810f61a202121be289b5d34555d2aec8fea7ae15ab608c5eb5148e58b05c1` both runs, byte-identical. (Only a harmless Node module-type warning on stderr; same as prior builds.)
+- Gate check: 86 chars / 86 bytes, 1 line, non-whitespace, gate 1–140 PASS; AI-voice checks pass.
+- Commit: `758c834092169a07926e8aa3625a28139bf2de75` (master, root commit, 6 files), pushed to origin; `git ls-remote origin HEAD` matches.
+- GitHub About verified via `gh repo view --json homepageUrl,repositoryTopics,url,visibility`: homepage = bounty URL, topics = [`makefun`], visibility PUBLIC.
+- NOT bundled / checked / submitted — main agent handles that.
